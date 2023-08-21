@@ -1,0 +1,29 @@
+server:
+  port: 8000
+
+
+#유레카는 기본적으로 클라이언트역할로서 어딘가에 등록하는 작업 진행.
+#그러나 현재는 server의 역할을 할 것이기 때문에, 자신의 정보를 자신에게 등록할 필요가 없다. 그래서 false 처리.
+eureka:
+  client:
+    register-with-eureka: false #eureka의 registry에 등록할지 여부이다.
+    fetch-registry: false #registry의 정보를 가져올 지 여부.
+    service-url:
+      defaultZone: http://localhost:8761/eureka #
+
+
+
+spring:
+  application:
+    name: apigateway-service
+#  cloud:
+#    gateway:
+#      routes: #Zuul 서비스의 라우팅과 유사한 역할.
+#        - id: first-service
+#          uri: http://localhost:8081/
+#          predicates:
+#            - Path=/first-service/** # 조건. Path 경로가 일치하면 해당 uri로 이동시킨다.
+#        - id: second-service
+#          uri: http://localhost:8082/
+#          predicates:
+#            - Path=/second-service/**
