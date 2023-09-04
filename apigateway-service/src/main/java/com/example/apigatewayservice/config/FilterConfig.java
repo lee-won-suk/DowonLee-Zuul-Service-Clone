@@ -5,10 +5,10 @@ import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-@Configuration
+//@Configuration
 public class FilterConfig {
-    @Bean
-    public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
+    //@Bean
+  /*  public RouteLocator gatewayRoutes(RouteLocatorBuilder builder) {
         return builder.routes()
                 .route(r -> r.path("/first-service/**")
                         .filters(f -> f.addRequestHeader("first-request","first-request-header")
@@ -20,5 +20,5 @@ public class FilterConfig {
                                 .addResponseHeader("second_response","second_response-header"))
                         .uri("http://localhost:8082"))
                 .build();
-    }
+    }*/
 }
