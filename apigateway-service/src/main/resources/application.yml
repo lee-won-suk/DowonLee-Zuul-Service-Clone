@@ -18,6 +18,13 @@ spring:
     name: apigateway-service
   cloud:
     gateway:
+      default-filters:
+        - name: GlobalFilter
+          args:
+            baseMessage: Spring Cloud Gateway GlobalFilter
+            preLogger: true
+            postLogger: true
+
       routes: #Zuul 서비스의 라우팅과 유사한 역할.
         - id: first-service
           uri: http://localhost:8081/
@@ -34,4 +41,9 @@ spring:
           filters:
 #            - AddRequestHeader=second-request, second-request-header2
 #            - AddResponseHeader=second-response, second-response-header2
-             - CustomFilter
+             - name: CustomFilter
+             - name: LoggingFilter
+               args:
+                 baseMessage: Hi, there
+                 preLogger: true
+                 postLogger: true
